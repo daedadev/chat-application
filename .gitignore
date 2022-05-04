@@ -24,3 +24,6 @@ community-*.tar
 
 /.elixir_ls/
 
+.env
+
+config/dev.secret.exs
