@@ -8,9 +8,9 @@ defmodule CommunityWeb.Router do
   scope "/" do
     pipe_through :api
 
-    forward "/graphiql", Absinthe.Plug.GraphiQL,
+    forward "/api", Absinthe.Plug.GraphiQL,
       schema: CommunityWeb.Schema,
-      interface: :simple,
+      interface: :playground,
       context: %{pubsub: CommunityWeb.Endpoint}
   end
 end

@@ -18,4 +18,19 @@ defmodule Community.NewsFixtures do
 
     link
   end
+
+  @doc """
+  Generate a article.
+  """
+  def article_fixture(attrs \\ %{}) do
+    {:ok, article} =
+      attrs
+      |> Enum.into(%{
+        body: "some body",
+        title: "some title"
+      })
+      |> Community.News.create_article()
+
+    article
+  end
 end

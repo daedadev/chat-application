@@ -3,7 +3,7 @@ defmodule Community.Repo.Migrations.CreateLinks do
 
   def change do
     create table(:links) do
-      add :url, :string
+      add :url, :string, null: false
       add :description, :text
 
       timestamps()

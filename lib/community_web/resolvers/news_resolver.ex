@@ -13,4 +13,18 @@ defmodule CommunityWeb.NewsResolver do
         {:error, "could not create link"}
     end
   end
+
+  def all_articles(_root, _args, _info) do
+    {:ok, News.list_articles()}
+  end
+
+  def create_article(_root, args, _info) do
+    case News.create_article(args) do
+      {:ok, article} ->
+        {:ok, article}
+        _error ->
+          {:error, "could not create article"}
+    end
+  end
+
 end
