@@ -1,12 +1,12 @@
-defmodule CommunityWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :community
+defmodule BlogWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :blog
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_community_key",
+    key: "_blog_key",
     signing_salt: "VQMLt7q4"
   ]
 
@@ -18,7 +18,7 @@ defmodule CommunityWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :community,
+    from: :blog,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -26,7 +26,7 @@ defmodule CommunityWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :community
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :blog
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -44,5 +44,5 @@ defmodule CommunityWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug CommunityWeb.Router
+  plug BlogWeb.Router
 end

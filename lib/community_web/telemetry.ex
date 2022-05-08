@@ -1,4 +1,4 @@
-defmodule CommunityWeb.Telemetry do
+defmodule BlogWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,23 +31,23 @@ defmodule CommunityWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("community.repo.query.total_time",
+      summary("blog.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("community.repo.query.decode_time",
+      summary("blog.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("community.repo.query.query_time",
+      summary("blog.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("community.repo.query.queue_time",
+      summary("blog.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("community.repo.query.idle_time",
+      summary("blog.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -65,7 +65,7 @@ defmodule CommunityWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {CommunityWeb, :count_users, []}
+      # {BlogWeb, :count_users, []}
     ]
   end
 end

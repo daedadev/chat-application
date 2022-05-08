@@ -1,4 +1,4 @@
-defmodule Community.Application do
+defmodule Blog.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule Community.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      Community.Repo,
+      Blog.Repo,
       # Start the Telemetry supervisor
-      CommunityWeb.Telemetry,
+      BlogWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Community.PubSub},
+      {Phoenix.PubSub, name: Blog.PubSub},
       # Start the Endpoint (http/https)
-      CommunityWeb.Endpoint
-      # Start a worker by calling: Community.Worker.start_link(arg)
+      BlogWeb.Endpoint
+      # Start a worker by calling: Blog.Worker.start_link(arg)
       # {Community.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Community.Supervisor]
+    opts = [strategy: :one_for_one, name: Blog.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule Community.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    CommunityWeb.Endpoint.config_change(changed, removed)
+    BlogWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

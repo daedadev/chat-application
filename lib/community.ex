@@ -1,6 +1,6 @@
-defmodule Community do
+defmodule Blog do
   @moduledoc """
-  Community keeps the contexts that define your domain
+  Blog keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

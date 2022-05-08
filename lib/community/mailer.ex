@@ -1,3 +1,3 @@
-defmodule Community.Mailer do
-  use Swoosh.Mailer, otp_app: :community
+defmodule Blog.Mailer do
+  use Swoosh.Mailer, otp_app: :Blog
 end

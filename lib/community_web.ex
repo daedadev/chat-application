@@ -1,12 +1,12 @@
-defmodule CommunityWeb do
+defmodule BlogWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use CommunityWeb, :controller
-      use CommunityWeb, :view
+      use BlogWeb, :controller
+      use BlogWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule CommunityWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: CommunityWeb
+      use Phoenix.Controller, namespace: BlogWeb
 
       import Plug.Conn
-      import CommunityWeb.Gettext
-      alias CommunityWeb.Router.Helpers, as: Routes
+      import BlogWeb.Gettext
+      alias BlogWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/community_web/templates",
-        namespace: CommunityWeb
+        root: "lib/blog_web/templates",
+        namespace: BlogWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,7 +54,7 @@ defmodule CommunityWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import CommunityWeb.Gettext
+      import BlogWeb.Gettext
     end
   end
 
@@ -63,9 +63,9 @@ defmodule CommunityWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import CommunityWeb.ErrorHelpers
-      import CommunityWeb.Gettext
-      alias CommunityWeb.Router.Helpers, as: Routes
+      import BlogWeb.ErrorHelpers
+      import BlogWeb.Gettext
+      alias BlogWeb.Router.Helpers, as: Routes
     end
   end
 
