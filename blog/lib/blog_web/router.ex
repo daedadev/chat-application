@@ -5,8 +5,12 @@ defmodule BlogWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", BlogWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: BlogWeb.Schema,
+      interface: :playground
   end
 
   # Enables LiveDashboard only for development

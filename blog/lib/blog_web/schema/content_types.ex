@@ -1,4 +1,4 @@
-defmodule BlodWeb.Schema.ContentTypes do
+defmodule BlogWeb.Schema.ContentTypes do
   use Absinthe.Schema.Notation
 
   object :post do
